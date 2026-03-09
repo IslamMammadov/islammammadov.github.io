@@ -7,97 +7,85 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#f5f3f0;
-    --bg2:#eeece8;
-    --card:#fff;
-    --text:#1a1a1a;
-    --muted:#7a7672;
-    --border:#dedad5;
-    --accent:#2d2d2d;
+    --bg:#f5f3f0;--bg2:#eeece8;--card:#fff;
+    --text:#1a1a1a;--muted:#7a7672;--border:#dedad5;
   }
   html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:15px}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px}
 
   /* NAV */
   nav{position:fixed;top:0;width:100%;background:rgba(245,243,240,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);z-index:100}
-  .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 2rem}
-  .logo{font-weight:700;font-size:.95rem;letter-spacing:.02em;color:var(--text);text-decoration:none}
-  .nav-links{display:flex;gap:2rem;list-style:none}
-  .nav-links a{text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;transition:color .2s}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 1.5rem}
+  .logo{font-weight:700;font-size:.95rem;color:var(--text);text-decoration:none}
+  .nav-links{display:flex;gap:1.75rem;list-style:none}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:.87rem;font-weight:500;transition:color .2s}
   .nav-links a:hover{color:var(--text)}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-  .hamburger span{display:block;width:20px;height:1.5px;background:var(--text);transition:.3s}
+  .hamburger span{display:block;width:20px;height:1.5px;background:var(--text)}
   @media(max-width:600px){
     .hamburger{display:flex}
-    .nav-links{display:none;position:absolute;top:56px;left:0;width:100%;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:.5rem 0}
+    .nav-links{display:none;position:absolute;top:52px;left:0;width:100%;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:.5rem 0}
     .nav-links.open{display:flex}
-    .nav-links li a{display:block;padding:.75rem 2rem}
+    .nav-links li a{display:block;padding:.65rem 1.5rem}
   }
 
-  /* LAYOUT */
-  section{padding:5rem 2rem}
+  /* SECTIONS */
+  section{padding:3.5rem 1.5rem}
   .container{max-width:900px;margin:0 auto}
+  .sh{margin-bottom:1.75rem}
+  .sh-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+  .sh h2{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
 
   /* HERO */
-  #hero{min-height:100vh;display:flex;align-items:center;padding-top:56px}
-  .hero-inner{max-width:900px;margin:0 auto;width:100%;padding:0 2rem}
-  .hero-eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem}
-  .hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.25rem}
-  .hero p{color:var(--muted);font-size:1.05rem;max-width:500px;margin-bottom:2.25rem}
-  .hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
-  .btn{display:inline-block;padding:.65rem 1.4rem;border-radius:6px;font-weight:600;font-size:.88rem;text-decoration:none;transition:.2s;letter-spacing:.01em}
+  #hero{min-height:100vh;display:flex;align-items:center;padding-top:52px}
+  .hero-eyebrow{font-size:.77rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+  .hero p{color:var(--muted);font-size:1rem;max-width:460px;margin-bottom:1.75rem}
+  .hero-btns{display:flex;gap:.6rem;flex-wrap:wrap}
+  .btn{display:inline-block;padding:.6rem 1.3rem;border-radius:6px;font-weight:600;font-size:.87rem;text-decoration:none;transition:.2s}
   .btn-dark{background:var(--text);color:#fff}
   .btn-dark:hover{background:#333}
   .btn-ghost{border:1.5px solid var(--border);color:var(--text)}
   .btn-ghost:hover{border-color:var(--text)}
 
-  /* SECTION HEADER */
-  .sh{margin-bottom:2.5rem}
-  .sh-label{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
-  .sh h2{font-size:1.75rem;font-weight:800;letter-spacing:-.02em}
-
   /* ABOUT */
   #about{background:var(--bg2)}
-  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:4rem;align-items:start}
-  .about-text p{color:var(--muted);margin-bottom:1rem;font-size:.97rem}
-  .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-  .stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.1rem;text-align:center}
-  .stat-num{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
-  .stat-label{font-size:.75rem;color:var(--muted);margin-top:.2rem}
-  @media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:2.5rem;align-items:start}
+  .about-text p{color:var(--muted);margin-bottom:.75rem;font-size:.95rem}
+  .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .stat-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:.9rem;text-align:center}
+  .stat-num{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+  .stat-label{font-size:.73rem;color:var(--muted);margin-top:.15rem}
+  @media(max-width:600px){.about-grid{grid-template-columns:1fr}}
 
   /* SKILLS */
-  #skills{background:var(--bg)}
-  .skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
-  .skill-group{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
-  .skill-group h3{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem}
-  .tags{display:flex;flex-wrap:wrap;gap:.4rem}
-  .tag{background:var(--bg2);color:var(--text);font-size:.8rem;font-weight:500;padding:.28rem .7rem;border-radius:4px}
+  .skills-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:.75rem}
+  .skill-group{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.1rem}
+  .skill-group h3{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.7rem}
+  .tags{display:flex;flex-wrap:wrap;gap:.35rem}
+  .tag{background:var(--bg2);color:var(--text);font-size:.78rem;font-weight:500;padding:.22rem .6rem;border-radius:4px}
 
   /* PROJECTS */
   #projects{background:var(--bg2)}
-  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-  .project-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;display:flex;flex-direction:column;gap:.85rem;transition:box-shadow .2s,transform .2s}
-  .project-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.07);transform:translateY(-2px)}
-  .project-card h3{font-size:1rem;font-weight:700;letter-spacing:-.01em}
-  .project-card p{color:var(--muted);font-size:.88rem;flex:1;line-height:1.6}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.75rem}
+  .project-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:flex;flex-direction:column;gap:.7rem;transition:box-shadow .2s,transform .2s}
+  .project-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);transform:translateY(-2px)}
+  .project-card h3{font-size:.97rem;font-weight:700;letter-spacing:-.01em}
+  .project-card p{color:var(--muted);font-size:.86rem;flex:1;line-height:1.55}
   .project-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
-  .project-tags{display:flex;flex-wrap:wrap;gap:.35rem}
-  .project-tag{background:var(--bg2);color:var(--muted);font-size:.74rem;font-weight:600;padding:.2rem .55rem;border-radius:4px}
-  .project-link{color:var(--text);font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap;border-bottom:1px solid var(--border);padding-bottom:1px;transition:.2s}
+  .project-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+  .project-tag{background:var(--bg2);color:var(--muted);font-size:.72rem;font-weight:600;padding:.18rem .5rem;border-radius:4px}
+  .project-link{color:var(--text);font-size:.81rem;font-weight:600;text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:.2s;white-space:nowrap}
   .project-link:hover{border-color:var(--text)}
-  .badge-new{display:inline-block;background:#1a1a1a;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:.15rem .5rem;border-radius:3px;text-transform:uppercase;margin-left:.5rem;vertical-align:middle}
+  .badge-new{display:inline-block;background:var(--text);color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.06em;padding:.13rem .45rem;border-radius:3px;text-transform:uppercase;margin-left:.4rem;vertical-align:middle}
 
   /* CONTACT */
-  #contact{background:var(--bg)}
-  .contact-wrap{max-width:520px}
-  .contact-wrap p{color:var(--muted);margin-bottom:2rem;font-size:.97rem}
-  .social-links{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
-  .social-link{display:flex;align-items:center;gap:.45rem;color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:.45rem .9rem;border:1px solid var(--border);border-radius:6px;transition:.2s}
+  .contact-wrap p{color:var(--muted);margin-bottom:1.5rem;font-size:.95rem;max-width:480px}
+  .social-links{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.25rem}
+  .social-link{display:flex;align-items:center;gap:.4rem;color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:500;padding:.4rem .85rem;border:1px solid var(--border);border-radius:6px;transition:.2s}
   .social-link:hover{border-color:var(--text);color:var(--text)}
 
-  /* FOOTER */
-  footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.5rem;color:var(--muted);font-size:.8rem}
+  footer{background:var(--bg2);border-top:1px solid var(--border);text-align:center;padding:1.2rem;color:var(--muted);font-size:.78rem}
 </style>
 </head>
 <body>
@@ -117,9 +105,8 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
-  <div class="hero-inner">
+  <div class="container">
     <p class="hero-eyebrow">Data Scientist & AI Engineer</p>
     <h1>Hi, I'm<br/>Islam Mammadov.</h1>
     <p>I turn complex data into meaningful insights and build intelligent systems that solve real-world problems.</p>
@@ -130,16 +117,12 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="sh">
-      <p class="sh-label">About Me</p>
-      <h2>Who I Am</h2>
-    </div>
+    <div class="sh"><p class="sh-label">About Me</p><h2>Who I Am</h2></div>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a passionate Data Scientist and AI Engineer with a strong foundation in machine learning, statistical modeling, and data visualization. I enjoy working at the intersection of data and business impact.</p>
+        <p>I'm a passionate Data Scientist and AI Engineer with a strong foundation in machine learning, statistical modeling, and data visualization.</p>
         <p>When I'm not building models, you'll find me exploring new datasets, reading research papers, or working on personal projects on GitHub.</p>
         <p>I'm currently looking for exciting opportunities where I can apply my skills and grow as an engineer.</p>
       </div>
@@ -153,105 +136,58 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <div class="sh">
-      <p class="sh-label">Skills</p>
-      <h2>What I Work With</h2>
-    </div>
+    <div class="sh"><p class="sh-label">Skills</p><h2>What I Work With</h2></div>
     <div class="skills-groups">
       <div class="skill-group">
         <h3>Languages</h3>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">SQL</span>
-          <span class="tag">R</span>
-          <span class="tag">Bash</span>
-        </div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">R</span><span class="tag">Bash</span></div>
       </div>
       <div class="skill-group">
         <h3>ML / AI</h3>
-        <div class="tags">
-          <span class="tag">scikit-learn</span>
-          <span class="tag">TensorFlow</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Hugging Face</span>
-          <span class="tag">XGBoost</span>
-        </div>
+        <div class="tags"><span class="tag">scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">XGBoost</span></div>
       </div>
       <div class="skill-group">
         <h3>Data & Analytics</h3>
-        <div class="tags">
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Power BI</span>
-          <span class="tag">Tableau</span>
-          <span class="tag">Spark</span>
-        </div>
+        <div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Spark</span></div>
       </div>
       <div class="skill-group">
         <h3>Tools & Cloud</h3>
-        <div class="tags">
-          <span class="tag">Git</span>
-          <span class="tag">Docker</span>
-          <span class="tag">AWS</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">MLflow</span>
-        </div>
+        <div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">FastAPI</span><span class="tag">MLflow</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-    <div class="sh">
-      <p class="sh-label">Projects</p>
-      <h2>Latest Work</h2>
-    </div>
+    <div class="sh"><p class="sh-label">Projects</p><h2>Latest Work</h2></div>
     <div class="projects-grid">
 
       <div class="project-card">
-        <div>
-          <h3>Sales Analysis — Multiple Linear Regression <span class="badge-new">New</span></h3>
-        </div>
+        <h3>Sales Analysis — Multiple Linear Regression <span class="badge-new">New</span></h3>
         <p>Analyzed sales data using Multiple Linear Regression in Python. Built an interactive Power BI dashboard to visualize trends, model performance (R², MAE, RMSE), and business insights.</p>
         <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">scikit-learn</span>
-            <span class="project-tag">Power BI</span>
-          </div>
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">scikit-learn</span><span class="project-tag">Power BI</span></div>
           <a class="project-link" href="https://github.com/IslamMammadov/Sales-Analysis-using-Multiple-Linear-Regression" target="_blank">GitHub →</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div>
-          <h3>Project Two <span class="badge-new">New</span></h3>
-        </div>
+        <h3>Project Two <span class="badge-new">New</span></h3>
         <p>Replace this with your second latest project description. What problem does it solve? What approach did you take?</p>
         <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">Pandas</span>
-          </div>
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Pandas</span></div>
           <a class="project-link" href="https://github.com/IslamMammadov" target="_blank">GitHub →</a>
         </div>
       </div>
 
       <div class="project-card">
-        <div>
-          <h3>Project Three <span class="badge-new">New</span></h3>
-        </div>
+        <h3>Project Three <span class="badge-new">New</span></h3>
         <p>Replace this with your third latest project description. What problem does it solve? What approach did you take?</p>
         <div class="project-footer">
-          <div class="project-tags">
-            <span class="project-tag">Python</span>
-            <span class="project-tag">TensorFlow</span>
-          </div>
+          <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">TensorFlow</span></div>
           <a class="project-link" href="https://github.com/IslamMammadov" target="_blank">GitHub →</a>
         </div>
       </div>
@@ -260,19 +196,15 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <div class="sh">
-      <p class="sh-label">Contact</p>
-      <h2>Let's Connect</h2>
-    </div>
+    <div class="sh"><p class="sh-label">Contact</p><h2>Let's Connect</h2></div>
     <div class="contact-wrap">
-      <p>I'm always open to new opportunities, collaborations, or just a good conversation about data and AI. Feel free to reach out.</p>
-      <a class="btn btn-dark" href="mailto:islam.mammadov2011@gmail.com>Send an Email</a>
+      <p>I'm always open to new opportunities, collaborations, or just a good conversation about data and AI.</p>
+      <a class="btn btn-dark" href="mailto:your@email.com">Send an Email</a>
       <div class="social-links">
         <a class="social-link" href="https://github.com/IslamMammadov" target="_blank">🐙 GitHub</a>
-        <a class="social-link" href="https://www.linkedin.com/in/islam-mammadov/" target="_blank">💼 LinkedIn</a>
+        <a class="social-link" href="https://linkedin.com/in/yourusername" target="_blank">💼 LinkedIn</a>
       </div>
     </div>
   </div>
@@ -281,5 +213,4 @@
 <footer>© 2026 Islam Mammadov</footer>
 
 </body>
-
 </html>
