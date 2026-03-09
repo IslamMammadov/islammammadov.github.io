@@ -1,1 +1,0 @@
-# islammammadov.github.io
